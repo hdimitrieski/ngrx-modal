@@ -21,11 +21,10 @@ import { getActiveModals, getInactiveModals } from './util';
 import { getModals } from './modal.reducer';
 import { CloseModal } from './modal.actions';
 
-
 @Component({
-  selector: 'ngrx-root-modal',
+  selector: 'ngrx-modal-root',
   template: `
-      <ng-template ngrx-modal-host></ng-template>
+      <ng-template ngrxModalHost></ng-template>
   `,
   styleUrls: ['./root-modal.component.css']
 })
@@ -45,7 +44,7 @@ export class RootModalComponent implements AfterViewInit, OnDestroy {
   }
 
   get viewContainerRef(): ViewContainerRef {
-    return this.modalHost && this.modalHost.viewContainerRef;
+    return this.modalHost.viewContainerRef;
   }
 
   constructor(
@@ -100,8 +99,8 @@ export class RootModalComponent implements AfterViewInit, OnDestroy {
 
   private open(modal: ModalPayload) {
     const { component, props, id } = modal;
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
 
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const componentRef = this.viewContainerRef.createComponent(componentFactory);
     componentRef.instance.props = props;
     componentRef.instance.id = id;
