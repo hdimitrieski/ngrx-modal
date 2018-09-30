@@ -1,4 +1,4 @@
-import { getModalId } from './util';
+import { generateModalId } from './util';
 import { ModalPayload } from './model/modal-payload';
 import { CloseModal, NgrxModalActions, NgrxModalActionTypes, OpenModal } from './modal.actions';
 
@@ -10,12 +10,12 @@ const initialState: State = {
   modals: []
 };
 
-const openModal = (state: State, action: OpenModal): State => ({
+const openModal = (state: State, {payload: modal}: OpenModal): State => ({
   modals: [
     ...state.modals,
     {
-      ...action.payload,
-      id: getModalId()
+      ...modal,
+      id: modal.id || generateModalId()
     }
   ]
 });

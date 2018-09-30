@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-export const getModalId = () => uuid();
+export const generateModalId = () => uuid();
 
 export const modalExist = (modal, modals) =>
   modals.find(m => m.id === modal.id);
