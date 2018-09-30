@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngrx-modal",
     "test": "ng test",
     "test-ci": "ng test ngrx-modal --watch=false --code-coverage",
     "report-coverage": "codecov ./coverage/lcov.info",
