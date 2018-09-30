@@ -32,10 +32,10 @@ export function createStoreModalDefaultConfig(config: StoreModalConfig): StoreMo
     RootModalComponent
   ]
 })
-export class HdModalModule {
+export class NgrxModalModule {
   static forRoot(config: StoreModalConfig = {}): ModuleWithProviders {
     return {
-      ngModule: HdModalModule,
+      ngModule: NgrxModalModule,
       providers: [
         {
           provide: InternalConfig,
