@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "ngrx-modal": {
+      "root": "projects/ngrx-modal",
+      "sourceRoot": "projects/ngrx-modal/src",
+      "projectType": "library",
+      "prefix": "ngrx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngrx-modal/tsconfig.lib.json",
+            "project": "projects/ngrx-modal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngrx-modal/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngrx-modal/src/test.ts",
+            "tsConfig": "projects/ngrx-modal/tsconfig.spec.json",
+            "karmaConfig": "projects/ngrx-modal/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngrx-modal/tsconfig.lib.json",
+              "projects/ngrx-modal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngrx-modal-app"
