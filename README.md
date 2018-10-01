@@ -1,27 +1,31 @@
-# NgrxModalApp
+# ngrx-modal
+[![Travis](https://travis-ci.com/hdimitrieski/ngrx-modal.svg)](https://travis-ci.com/hdimitrieski/ngrx-modal)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
+Handle presenting modal dialogs via NgRx store.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```
+npm install ngrx-modal --save
 
-## Code scaffolding
+yarn add ngrx-modal
+```
+##Setup
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```ts
+import { NgrxModalModule } from 'ngrx-modal';
+import { AppComponent } from './app.component';
 
-## Build
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgrxModalModule.forRoot({
+      stateKey: 'modal'
+    })
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- `stateKey`: The name of reducer key, defaults to `modals`
