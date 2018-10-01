@@ -5,13 +5,33 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ngrx-modal",
+    "build-lib": "ng build --prod ngrx-modal",
     "test": "ng test",
     "test-ci": "ng test ngrx-modal --watch=false --code-coverage",
     "report-coverage": "codecov ./coverage/lcov.info",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "copy-license": "copy .\\LICENSE .\\dist\\ngrx-modal",
+    "copy-readme": "copy .\\README.md .\\dist\\ngrx-modal",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/ngrx-modal && npm pack",
+    "package": "npm run build-lib && npm run copy-files && npm run npm_pack"
   },
   "private": true,
+  "homepage": "https://github.com/hdimitrieski/ngrx-modal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hdimitrieski/ngrx-modal.git"
+  },
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript",
+    "ngrx",
+    "redux",
+    "modal"
+  ],
+  "license": "MIT",
   "dependencies": {
     "@angular/animations": "^6.0.0",
     "@angular/common": "^6.0.0",
